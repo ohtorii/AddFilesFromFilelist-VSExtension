@@ -97,21 +97,35 @@ namespace AddFilesFromFilelist
 		private void Execute(object sender, EventArgs e)
 		{
 			ThreadHelper.ThrowIfNotOnUIThread();
-			object item = ProjectHelpers.GetSelectedItem();
 
+			/*フォームからファイルリストのファイル名を得る
+			 */
+			var form = new Resources.FileListSelector();
+			form.ShowDialog();
+			var filename = @"";
+
+
+
+			object item = ProjectHelpers.GetSelectedItem();
 			var selectedItem = item as ProjectItem;
 			var selectedProject = item as Project;
 			Project project = selectedItem?.ContainingProject ?? selectedProject ?? ProjectHelpers.GetActiveProject();
 			if (project == null) {
 				return;
 			}
-			project.AddFileToProject(@"C:\Users\ikeuc\source\repos\WpfApp1\WpfApp1\LICENSE");
-			project.AddFileToProject(@"C:\Users\ikeuc\source\repos\WpfApp1\WpfApp1\README.md");
-			project.AddFileToProject(@"C:\Users\ikeuc\source\repos\WpfApp1\test");
-			//project.ProjectItems.AddFromFile(@"C:\Users\ikeuc\source\repos\WpfApp1\LICENSE");
-			//project.ProjectItems.AddFromFile(@"C:\Users\ikeuc\source\repos\WpfApp1\README.md");
-			//AddFileToProject();
-
+			using (StreamReader reader = new StreamReader(filename, true))
+			{
+				while (! reader.EndOfStream)
+				{
+					var line = reader.ReadLine().TrimEnd(new char[] { '\n', '\r' });
+					if (line == "")
+					{
+						continue;
+					}
+					project.AddFileToProject(line);
+				}
+			}
+			/*
 			VsShellUtilities.ShowMessageBox(
 				this.package,
 				"kita----",
@@ -119,6 +133,7 @@ namespace AddFilesFromFilelist
 				OLEMSGICON.OLEMSGICON_INFO,
 				OLEMSGBUTTON.OLEMSGBUTTON_OK,
 				OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
+				*/
 		
 	}
 	}
