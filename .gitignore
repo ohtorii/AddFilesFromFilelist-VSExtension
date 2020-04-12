@@ -1,2 +1,6 @@
-
+.vs
+v16
+bin
+obj
+.suo
 .vs/AddFilesFromFilelist/v16/.suo
