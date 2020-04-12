@@ -99,7 +99,6 @@
 			this.Controls.Add(this.TextBoxFileName);
 			this.Name = "FileListSelector";
 			this.Text = "Option.";
-			this.Load += new System.EventHandler(this.FileListSelector_Load);
 			((System.ComponentModel.ISupportInitialize)(this.fileListSelectorBindingSource)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
