@@ -28,18 +28,26 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.FileName = new System.Windows.Forms.TextBox();
+			this.components = new System.ComponentModel.Container();
+			this.TextBoxFileName = new System.Windows.Forms.TextBox();
+			this.fileListSelectorBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.OpenFileSelector = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
 			this.OK = new System.Windows.Forms.Button();
+			this.Cancel = new System.Windows.Forms.Button();
+			((System.ComponentModel.ISupportInitialize)(this.fileListSelectorBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
-			// FileName
+			// TextBoxFileName
 			// 
-			this.FileName.Location = new System.Drawing.Point(80, 56);
-			this.FileName.Name = "FileName";
-			this.FileName.Size = new System.Drawing.Size(442, 25);
-			this.FileName.TabIndex = 0;
+			this.TextBoxFileName.Location = new System.Drawing.Point(80, 56);
+			this.TextBoxFileName.Name = "TextBoxFileName";
+			this.TextBoxFileName.Size = new System.Drawing.Size(442, 25);
+			this.TextBoxFileName.TabIndex = 0;
+			// 
+			// fileListSelectorBindingSource
+			// 
+			this.fileListSelectorBindingSource.DataSource = typeof(AddFilesFromFilelist.Resources.FileListSelector);
 			// 
 			// OpenFileSelector
 			// 
@@ -61,6 +69,7 @@
 			// 
 			// OK
 			// 
+			this.OK.DialogResult = System.Windows.Forms.DialogResult.OK;
 			this.OK.Location = new System.Drawing.Point(246, 151);
 			this.OK.Name = "OK";
 			this.OK.Size = new System.Drawing.Size(75, 23);
@@ -68,17 +77,30 @@
 			this.OK.Text = "OK";
 			this.OK.UseVisualStyleBackColor = true;
 			// 
+			// Cancel
+			// 
+			this.Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.Cancel.Location = new System.Drawing.Point(359, 150);
+			this.Cancel.Name = "Cancel";
+			this.Cancel.Size = new System.Drawing.Size(75, 23);
+			this.Cancel.TabIndex = 4;
+			this.Cancel.Text = "Cancel";
+			this.Cancel.UseVisualStyleBackColor = true;
+			// 
 			// FileListSelector
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(626, 210);
+			this.Controls.Add(this.Cancel);
 			this.Controls.Add(this.OK);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.OpenFileSelector);
-			this.Controls.Add(this.FileName);
+			this.Controls.Add(this.TextBoxFileName);
 			this.Name = "FileListSelector";
 			this.Text = "Option.";
+			this.Load += new System.EventHandler(this.FileListSelector_Load);
+			((System.ComponentModel.ISupportInitialize)(this.fileListSelectorBindingSource)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -86,9 +108,11 @@
 
 		#endregion
 
-		private System.Windows.Forms.TextBox FileName;
+		private System.Windows.Forms.TextBox TextBoxFileName;
 		private System.Windows.Forms.Button OpenFileSelector;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Button OK;
+		private System.Windows.Forms.Button Cancel;
+		private System.Windows.Forms.BindingSource fileListSelectorBindingSource;
 	}
 }

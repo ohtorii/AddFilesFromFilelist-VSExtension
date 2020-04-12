@@ -14,6 +14,7 @@ using Microsoft.VisualStudio.Text;
 
 
 using Task = System.Threading.Tasks.Task;
+using System.Windows.Forms;
 
 namespace AddFilesFromFilelist
 {
@@ -102,8 +103,29 @@ namespace AddFilesFromFilelist
 			 */
 			var form = new Resources.FileListSelector();
 			form.ShowDialog();
-			var filename = @"";
-
+			if(form.DialogResult != DialogResult.OK)
+			{
+				VsShellUtilities.ShowMessageBox(
+				this.package,
+				"! OK",
+				"title",
+				OLEMSGICON.OLEMSGICON_INFO,
+				OLEMSGBUTTON.OLEMSGBUTTON_OK,
+				OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
+				return;
+			}
+			var filename = form.Data.FileListName;
+			if ((filename==null)||(filename==""))
+			{
+				VsShellUtilities.ShowMessageBox(
+				this.package,
+				string.Format("filename={0}", filename),
+				"title",
+				OLEMSGICON.OLEMSGICON_INFO,
+				OLEMSGBUTTON.OLEMSGBUTTON_OK,
+				OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
+				return;
+			}
 
 
 			object item = ProjectHelpers.GetSelectedItem();
