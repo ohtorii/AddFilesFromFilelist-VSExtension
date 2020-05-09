@@ -1,14 +1,20 @@
-# AddFilesFromFilelist
+﻿# AddFilesFromFilelist
 
 ![Maintenance](https://img.shields.io/maintenance/yes/2020.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 # Description
 
-VisualStudio�փ\�[�X�t�@�C�����ꊇ�o�^����g���@�\�B
+VisualStudioへファイルを一括登録する拡張機能。
 
-# ����C���[�W
+# 動作イメージ
  
+あとで
+
+# 開発の経緯
+
+makefile,cmakeに記述された大量のファイルをVisualStudioへ間違いなく追加する目的で開発しました。
+
 
 # Contact
 
