@@ -1,22 +1,14 @@
-# Open in Hidemaru Editor
+# AddFilesFromFilelist
 
 ![Maintenance](https://img.shields.io/maintenance/yes/2020.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 # Description
 
-A Visual Studio and Visual Studio Code extension that adds a right-click context menu command. Allows you to open the solution file, project file, or file in [Hidemaru editor](https://hide.maruo.co.jp/index.html).
+VisualStudioへソースファイルを一括登録する拡張機能。
 
-# Folders
-
-- [VisualStudio](VisualStudio/README.md)
-
-Visual Studio extension.
-
-- [VisualStudioCode](VisualStudioCode/README.md)
-
-Visual Studio Code extension.
-
+# 動作イメージ
+ 
 
 # Contact
 
